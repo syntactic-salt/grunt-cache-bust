@@ -37,10 +37,12 @@ module.exports = function() {
             .reduce(hashFile, {});
 
         grunt.verbose.write('Assets found:', assetMap);
+	var jsonAssets = assetMap;
+        jsonAssets["ref"] = this.files[0].src;
 
         // Write out assetMap
         if(opts.jsonOutput === true) {
-            grunt.file.write(path.resolve(opts.baseDir, opts.jsonOutputFilename), JSON.stringify(assetMap));
+            grunt.file.write(path.resolve(opts.baseDir, opts.jsonOutputFilename), JSON.stringify(jsonAssets));
         }
 
         // Go through each source file and replace terms
