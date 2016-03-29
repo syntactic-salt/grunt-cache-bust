@@ -37,7 +37,9 @@ module.exports = function() {
             .reduce(hashFile, {});
 
         grunt.verbose.write('Assets found:', assetMap);
-	var jsonAssets = assetMap;
+        var jsonAssets = {};
+        jsonAssets["res"] = assetMap;
+    
         jsonAssets["ref"] = this.files[0].src;
 
         // Write out assetMap
