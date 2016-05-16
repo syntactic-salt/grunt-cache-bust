@@ -38,9 +38,9 @@ module.exports = function() {
 
         grunt.verbose.write('Assets found:', assetMap);
         var jsonAssets = {};
-        jsonAssets["res"] = assetMap;
+        jsonAssets["assets"] = assetMap;
     
-        jsonAssets["ref"] = this.files[0].src;
+        jsonAssets["refFiles"] = this.files[0].src;
 
         // Write out assetMap
         if(opts.jsonOutput === true) {
